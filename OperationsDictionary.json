@@ -1,0 +1,72 @@
+{
+	"dictionaries": [
+		{
+			"name": "Operations Dictionary",
+			"description": "Справочник допустимых операций(действий)",
+			"dictionaryGroups": {
+				"read": [
+					{
+						"name": "read",
+						"enabled": true
+					},
+					{
+						"name": "readbasic",
+						"enabled": true
+					}
+				],				
+				"create": [
+					{
+						"name": "create",
+						"enabled": true
+					}
+				],
+				"delete": [
+					{
+						"name": "delete",
+						"enabled": true
+					}
+				],
+				"save": [
+					{
+						"name": "save",
+						"enabled": true
+					}
+				],
+				"send": [
+					{
+						"name": "send",
+						"enabled": true
+					}
+				],
+				"print": [
+					{
+						"name": "print",
+						"enabled": true
+					}
+				],
+				"add": [
+					{
+						"name": "add",
+						"enabled": true
+					}
+				],				
+				"export": [
+					{
+						"name": "export",
+						"enabled": true
+					}
+				],
+				"manage": [
+					{
+						"name": "manage",
+						"enabled": true
+					},
+					{
+						"name": "fullcontrol",
+						"enabled": true
+					}
+				]
+			}
+		}
+	]
+}

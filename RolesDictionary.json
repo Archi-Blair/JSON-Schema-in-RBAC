@@ -1,0 +1,32 @@
+{
+	"dictionaries": [
+		{
+			"name": "Roles Dictionary",
+			"description": "Справочник ролей",
+			"dictionaryGroups": {
+				"administrators": [
+					{
+						"name": "administrator",
+						"enabled": true
+					},
+					{
+						"name": "superuser",
+						"enabled": true
+					}
+				],				
+				"accountants": [
+					{
+						"name": "accountant",
+						"enabled": true
+					}
+				],
+				"employees": [
+					{
+						"name": "employee",
+						"enabled": true
+					}
+				]
+			}
+		}
+	]
+}

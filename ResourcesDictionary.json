@@ -1,0 +1,32 @@
+{
+	"dictionaries": [
+		{
+			"name": "Resources Dictionary",
+			"description": "Описание ресурсов, к которым предоставляется доступ",
+			"dictionaryGroups": {				
+				"documents": [
+					{
+						"name": "documents",
+						"enabled": true
+					},
+					{
+						"name": "reports",
+						"enabled": true
+					}
+				],				
+				"companies": [
+					{
+						"name": "companyreports",
+						"enabled": true
+					}
+				],				
+				"dictionaries": [
+					{
+						"name": "dictionaries",
+						"enabled": true
+					}
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,122 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"description": "Справочники ролей",
+	"type": "object",
+	"properties": {
+		"dictionaries": {
+			"description": "Справочники",
+			"type": "array",
+			"maxItems": 1,
+			"items": {
+				"type": "object",
+				"minLength": 1,
+				"properties": {
+					"name": {
+						"description": "Наименование словаря",
+						"type": "string",
+						"enum": [
+							"Roles Dictionary"
+						]
+					},
+					"description": {
+						"description": "Описание словаря",
+						"type": "string",
+						"enum": [
+							"Справочник ролей"
+						]
+					},
+					"dictionaryGroups": {
+						"$ref": "#/definitions/roles",
+						"description": "Справочные данные"
+					}
+				},
+				"additionalProperties": false
+			}
+		}
+	},
+	"additionalProperties": false,
+	"definitions": {
+		"roles": {
+			"description": "Роли",
+			"type": "object",
+			"properties": {
+				"administrators": {
+					"description": "Администраторы",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"enum": [
+									"administrator",
+									"superuser"
+								],
+								"enumNames": [
+									"Администратор",
+									"Пользователь-администратор с ограниченным доступом"
+								]
+							},
+							"enabled": {
+								"type": "boolean",
+								"default": true
+							}
+						},
+						"additionalProperties": false
+					}
+				},
+				"accountants": {
+					"description": "Бухгалтеры",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"enum": [
+									"accountant"
+								],
+								"enumNames": [
+									"Бухгалтер"
+								]
+							},
+							"enabled": {
+								"type": "boolean",
+								"default": true
+							}
+						},
+						"additionalProperties": false
+					}
+				},
+				"employees": {
+					"description": "Сотрудники",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"enum": [
+									"employee"
+								],
+								"enumNames": [
+									"Сотрудник"
+								]
+							},
+							"enabled": {
+								"type": "boolean",
+								"default": true
+							}
+						},
+						"additionalProperties": false
+					}
+				}
+			},
+			"additionalProperties": false
+		}
+	},
+	"$id": "http://archi-blair.com/schemas/RolesDictionaryDef.json#"
+}

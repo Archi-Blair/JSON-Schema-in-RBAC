@@ -1,0 +1,269 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"description": "Операции",
+	"type": "object",
+	"properties": {
+		"dictionaries": {
+			"description": "Справочники",
+			"type": "array",
+			"items": [
+				{
+					"type": "object",
+					"minLength": 1,
+					"properties": {
+						"name": {
+							"description": "Наименование словаря",
+							"type": "string",
+							"enum": [
+								"Operations Dictionary"
+							]
+						},
+						"description": {
+							"description": "Описание словаря",
+							"type": "string",
+							"enum": [
+								"Справочник допустимых операций(действий)"
+							]
+						},
+						"dictionaryGroups": {
+							"$ref": "#/definitions/operations",
+							"description": "Справочные данные"
+						}
+					},
+					"additionalProperties": false
+				}
+			],
+			"additionalItems": false
+		}
+	},
+	"additionalProperties": false,
+	"definitions": {
+		"operations": {
+			"description": "Операции для работы с ресурсами",
+			"type": "object",
+			"properties": {
+				"read": {
+					"description": "Право на чтение",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"enum": [
+									"read",
+									"readbasic"
+								],
+								"enumNames": [
+									"Право на чтение",
+									"Право на чтение основных значений"
+								]
+							},
+							"enabled": {
+								"type": "boolean",
+								"default": true
+							}
+						},
+						"additionalProperties": false
+					}
+				},				
+				"create": {
+					"description": "Право на создание",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"enum": [
+									"create"
+								],
+								"enumNames": [
+									"Право на создание"
+								]
+							},
+							"enabled": {
+								"type": "boolean",
+								"default": false
+							}
+						},
+						"additionalProperties": false
+					}
+				},
+				"delete": {
+					"description": "Право на удаление",
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"enum": [
+									"delete"
+								],
+								"enumNames": [
+									"Право на удаление"
+								]
+							},
+							"enabled": {
+								"type": "boolean",
+								"default": false
+							}
+						},
+						"additionalProperties": false
+					}
+				},
+				"save": {
+					"description": "Право на сохранение",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"enum": [
+									"save"
+								],
+								"enumNames": [
+									"Право на сохранение"
+								]
+							},
+							"enabled": {
+								"type": "boolean",
+								"default": true
+							}
+						},
+						"additionalProperties": false
+					}
+				},
+				"send": {
+					"description": "Право на отправку",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"enum": [
+									"send"
+								],
+								"enumNames": [
+									"Право на отправку"
+								]
+							},
+							"enabled": {
+								"type": "boolean",
+								"default": true
+							}
+						},
+						"additionalProperties": false
+					}
+				},
+				"print": {
+					"description": "Право на печать",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"enum": [
+									"print"
+								],
+								"enumNames": [
+									"Право на печать"
+								]
+							},
+							"enabled": {
+								"type": "boolean",
+								"default": true
+							}
+						},
+						"additionalProperties": false
+					}
+				},				
+				"add": {
+					"description": "Право на добавление",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"enum": [
+									"add"
+								],
+								"enumNames": [
+									"Право на добавление"
+								]
+							},
+							"enabled": {
+								"type": "boolean",
+								"default": true
+							}
+						},
+						"additionalProperties": false
+					}
+				},				
+				"export": {
+					"description": "Право на экспорт данных",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"enum": [
+									"export"
+								],
+								"enumNames": [
+									"Право на экспорт данных"
+								]
+							},
+							"enabled": {
+								"type": "boolean",
+								"default": true
+							}
+						},
+						"additionalProperties": false
+					}
+				},
+				"manage": {
+					"description": "Создание, редактирование и удаление",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"enum": [
+									"manage",
+									"fullcontrol"
+								],
+								"enumNames": [
+									"Право на управление cоздание, редактирование и удаление",
+									"Неограниченный доступ"
+								]
+							},
+							"enabled": {
+								"type": "boolean",
+								"default": false
+							}
+						},
+						"additionalProperties": false
+					}
+				}
+			},
+			"additionalProperties": false
+		}
+	},
+	"$id": "http://archi-blair.com/schemas/OperationsDictionaryDef.json#"
+}

@@ -1,0 +1,84 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "JSON schema for dictionary",
+	"type": "object",
+	"properties": {
+		"dictionaries": {
+			"description": "Справочники",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"minLength": 1,
+				"properties": {
+					"name": {
+						"description": "Наименование группы словарей",
+						"type": "string"
+					},
+					"description": {
+						"description": "Описание словарей",
+						"type": "string"
+					},
+					"dictionaryGroup": {
+						"$ref": "RolesDictionaryDef.json#/definitions/roles"
+					}
+				},
+				"additionalProperties": false
+			},
+			"anyOf": [
+				{
+					"items": {
+						"type": "object",
+						"minLength": 1,
+						"properties": {
+							"name": {
+								"description": "Наименование группы словарей",
+								"type": "string"
+							},
+							"description": {
+								"description": "Описание словарей",
+								"type": "string"
+							},
+							"dictionaryGroup": {
+								"$ref": "OperationsDictionaryDef.json#/definitions/operations"
+							}
+						},
+						"additionalProperties": false
+					}
+				},				
+				{
+					"items": {
+						"type": "object",
+						"minLength": 1,
+						"properties": {
+							"name": {
+								"description": "Наименование группы словарей",
+								"type": "string"
+							},
+							"description": {
+								"description": "Описание словарей",
+								"type": "string"
+							},
+							"dictionaryGroup": {
+								"$ref": "ResourcesDictionaryDef.json#/definitions/resources"
+							}
+						},
+						"additionalProperties": false
+					}
+				}
+			]
+		},
+		"version": {
+			"type": "number"
+		}
+	},
+	"required": [
+		"dictionaries",
+		"version"
+	],
+	"additionalProperties": false,
+	"$id": "http://json.schemastore.org/Dictionaries.json",
+	"version": {
+		"description": "Версия схемы словарей",
+		"type": "number"
+	}
+}

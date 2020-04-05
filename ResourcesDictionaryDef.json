@@ -1,0 +1,124 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"description": "Справочник ресурсов",
+	"type": "object",
+	"properties": {
+		"dictionaries": {
+			"description": "Справочники",
+			"type": "array",
+			"maxItems": 1,
+			"items": {
+				"type": "object",
+				"minLength": 1,
+				"properties": {
+					"name": {
+						"description": "Наименование словаря",
+						"type": "string",
+						"enum": [
+							"Resources Dictionary"
+						]
+					},
+					"description": {
+						"description": "Описание словаря",
+						"type": "string",
+						"enum": [
+							"Описание ресурсов, к которым предоставляется доступ"
+						]
+					},
+					"dictionaryGroups": {
+						"$ref": "#/definitions/resources",
+						"description": "Справочные данные"
+					}
+				},
+				"additionalProperties": false
+			}
+		}
+	},
+	"additionalProperties": false,
+	"definitions": {
+		"resources": {
+			"description": "Описание ресурсов, к которым предоставляется доступ",
+			"type": "object",
+			"properties": {				
+				"documents": {
+					"description": "Документы",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"enum": [
+									"documents",
+									"reports"
+								],
+								"enumNames": [
+									"Документы",
+									"Отчеты"
+								]
+							},
+							"enabled": {
+								"type": "boolean",
+								"default": true
+							}
+						},
+						"additionalProperties": false
+					}
+				},			
+				"companies": {
+					"description": "Компании",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"enum": [
+									"companies",
+									"companyreports"
+								],
+								"enumNames": [
+									"Информация о компаниях",
+									"Списки отчетов компании"
+								]
+							},
+							"enabled": {
+								"type": "boolean",
+								"default": true
+							}
+						},
+						"additionalProperties": false
+					}
+				},				
+				"dictionaries": {
+					"description": "Справочники",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"enum": [
+									"dictionaries"
+								],
+								"enumNames": [
+									"Справочники"
+								]
+							},
+							"enabled": {
+								"type": "boolean",
+								"default": true
+							}
+						},
+						"additionalProperties": false
+					}
+				}
+			},
+			"additionalProperties": false
+		}
+	},
+	"$id": "http://archi-blair.com/schemas/ResourcesDictionaryDef.json#"
+}
